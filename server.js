@@ -19,13 +19,8 @@ app.use((req, res, next) => {
 
 app.use("/monster", monsterprepRoutes);
 
-mongoose
-  .connect(process.env.MONGO_URI)
-  .then(() => {
-    app.listen(process.env.PORT, () => {
-      console.log(`Listening to port ${process.env.PORT}`);
-    });
-  })
-  .catch((error) => {
-    console.log(error);
-  });
+mongoose.connect(process.env.MONGO_URI);
+
+app.listen(process.env.PORT, () => {
+  console.log(`Listening to port ${process.env.PORT}`);
+});
