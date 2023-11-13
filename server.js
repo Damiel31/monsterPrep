@@ -2,7 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 
-const monsterprepRoutes = require("./routes/monsterprepRoutes")
+const monsterprepRoutes = require("./routes/monsterprepRoutes");
 
 require("dotenv").config();
 
@@ -17,7 +17,7 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use("/monster", monsterprepRoutes)
+app.use("/monster", monsterprepRoutes);
 
 mongoose
   .connect(process.env.MONGO_URI)

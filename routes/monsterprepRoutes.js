@@ -13,7 +13,7 @@ router.get("/", getMonsterPreps);
 
 router.get("/:prepId", getMonsterPrep);
 
-router.put("/", createMonsterPrep);
+router.post("/", createMonsterPrep);
 
 router.patch("/:prepId", updateMonsterPrep);
 
