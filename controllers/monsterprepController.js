@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const MonsterPrep = require("../models/monsterprepModels");
 
 const getMonsterPreps = async (req, res) => {
-  const preps = await MonsterPrep.find({}).sort({ createdAt: 1 });
+  const preps = await MonsterPrep.find({}).sort({ createdAt: -1 });
 
   if (!preps) {
     res.status(404).json({ error: "No preparation made" });
