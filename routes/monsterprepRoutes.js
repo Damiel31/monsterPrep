@@ -15,7 +15,7 @@ router.get("/:prepId", getMonsterPrep);
 
 router.post("/", createMonsterPrep);
 
-router.patch("/:prepId", updateMonsterPrep);
+router.put("/:prepId", updateMonsterPrep);
 
 router.delete("/:prepId", deleteMonsterPrep);
 
