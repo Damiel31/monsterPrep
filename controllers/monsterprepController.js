@@ -37,9 +37,38 @@ const createMonsterPrep = async (req, res) => {
   }
 };
 
-const updateMonsterPrep = async (req, res) => {};
+const updateMonsterPrep = async (req, res) => {
+  try {
+    const {prepId} = req.params;
+    const monster = await MonsterPrep.findByIdAndUpdate(prepId, req.body);
+    if(!monster) {
+      res.status(404);
+      throw new Error(`cannot findd any monster with ID ${prepId}`);
+    }
+    const updateMonster = await MonsterPrep.findById(prepId);
+    res.status(200).json(updateMonster)
 
-const deleteMonsterPrep = async (req, res) => {};
+  } catch (error) {
+    res.status(500);
+    throw new Error(error.message);
+  }
+};
+
+const deleteMonsterPrep = async (req, res) => {
+  try {
+    const {prepId} = req.params;
+    const monster = await MonsterPrep.findByIdAndDelete(prepId);
+    if(!monster) {
+      res.status(404);
+      throw new Error(`cannot find any monster with ID ${prepId}`);
+    }
+    res.status(200).json(monster);
+
+  } catch (error) {
+    res.status(500);
+    throw new Error(error.message)
+  }
+};
 
 module.exports = {
   getMonsterPreps,
